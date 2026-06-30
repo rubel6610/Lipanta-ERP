@@ -1,8 +1,32 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/lipanta-erp/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/lipanta-erp/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/lipanta-erp",
+  "projects": {
+    "api-gateway": {
+      "type": "application",
+      "root": "apps/api-gateway",
+      "entryFile": "main",
+      "sourceRoot": "apps/api-gateway/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/api-gateway/tsconfig.app.json"
+      }
+    },
+    "lipanta-erp": {
+      "type": "application",
+      "root": "apps/lipanta-erp",
+      "entryFile": "main",
+      "sourceRoot": "apps/lipanta-erp/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/lipanta-erp/tsconfig.app.json"
+      }
+    }
   }
 }
