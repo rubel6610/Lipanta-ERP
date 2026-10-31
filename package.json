@@ -6,20 +6,20 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "node api.js && nest build",
+    "build": "node init && nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
-    "start": "node api.js && nest start",
-    "start:dev": "nest start --watch",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/apps/lipanta-erp/main",
+    "start": "node init && nest start",
+    "start:dev": "node init && nest start --watch",
+    "start:debug": "node init && nest start --debug --watch",
+    "start:prod": "node init && node dist/apps/lipanta-erp/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./apps/lipanta-erp/test/jest-e2e.json",
-    "start:gateway": "nest start api-gateway",
-    "start:gateway:dev": "nest start api-gateway --watch"
+    "start:gateway": "node init && nest start api-gateway",
+    "start:gateway:dev": "node init && nest start api-gateway --watch"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
